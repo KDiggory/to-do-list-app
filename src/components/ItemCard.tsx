@@ -22,8 +22,8 @@ interface IAppProps {
     itemDescription: String,
     itemDate: String,
       id: Number,
-      list_id: Number
-    
+      list_id: Number 
+
 
 }
 
@@ -31,6 +31,23 @@ const ItemCard: React.FunctionComponent<IAppProps> = (props) => {
 
     const [idDel, setIdDel] = useState<Number>();
     const [idUpdate, setIdUpdate] = useState<Number>();
+    const [deleted, setDeleted] = useState<boolean>(false);
+
+// use effect so that when idDel state is set with the id, it will delete that id
+    useEffect(() => {
+        console.log('should get to here')
+        axios.delete(`http://localhost:8080/deleteItems/${idDel}`)
+        .then(() => {
+          console.log('item deleted');
+        })
+        .catch(()=> {
+
+        });
+    },[idDel]);
+    // would be good to get a re-render after deletion
+
+
+   
 
 
         return (
@@ -57,12 +74,9 @@ const ItemCard: React.FunctionComponent<IAppProps> = (props) => {
                 <Typography >
                  <h5> List ID: cant get this working</h5> 
                 </Typography>
-                </CardContent>
-                {/* <CardActions style={{justifyContent: 'center'}}>
                 <Button variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
                 <Button variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
-                 </CardActions> */}
-                 
+                </CardContent>
                  </Card> 
                  </Grid>
             )

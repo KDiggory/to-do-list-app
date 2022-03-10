@@ -48,6 +48,10 @@ const Items : React.FunctionComponent<IAppProps> = (props) => {
       });
     }
 
+    // handle delete function to re-render
+    // const handleDel = () => seeAll();
+    
+
 //   if (loaded) {
       return (
         <div>
@@ -59,11 +63,10 @@ const Items : React.FunctionComponent<IAppProps> = (props) => {
         id="grid"> 
            {items.map((item) => {
                console.log(item);
-            //   console.log(`an item: ${item.id}`); // this is working but console logging
               return (
                   <div> 
               
-               <ItemCard   itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
+               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
                </div>
             )})}     
       </Container>
