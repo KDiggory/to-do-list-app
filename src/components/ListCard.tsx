@@ -99,10 +99,10 @@ useEffect(() => {
                 </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                <Button variant="contained" size="small" onClick={() =>setListId(props.id)}> Items on this list </Button>  
-                <Button variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
+                {/* <Button id="inCard" variant="contained" size="small" onClick={() =>setListId(props.id)}> Items on this list </Button>   */}
+                <Button id="inCard" variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
                 {/* href="#outlined-buttons" - if cant get the update bars next to words */}
-                <Button variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
+                <Button id="inCardDel" variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
                 </CardActions>    
                 </Card>
                 </Grid>

@@ -7,6 +7,7 @@ import axios from "axios";
 import ListCard from './ItemCard';
 import { Container } from '@material-ui/core';
 import ItemCard from './ItemCard';
+import NavItem from './NavItem';
 
 interface IAppProps {
 }
@@ -23,66 +24,26 @@ const Items : React.FunctionComponent<IAppProps> = (props) => {
    // State to check if the data has loaded
    const [loaded, setLoaded] = useState(false);
 
-    const newitem = () => {
-        window.location.href = '/newitem'
-    }
 
-    const update = () => {
-        window.location.href = '/update'
-    }
-
-    const seeAll = () => {
-        console.log('in seeAll function');
-    axios
-      .get('http://localhost:8080/getAll')
-      .then((response) => {
-        console.log('after axios req');
-        // console.log(response);
-        setItems(response.data);
-        setLoaded(true);
-        console.log(loaded);
-        console.log("Got results, page should load.");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
-
-    // handle delete function to re-render
-    // const handleDel = () => seeAll();
     
 
-//   if (loaded) {
       return (
         <div>
         <Nav></Nav>
-        <Button variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-        <Button variant="contained" size="small" onClick={update} > Update a job </Button>
-        <Button variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
+        <NavItem></NavItem>
         <Container 
         id="grid"> 
            {items.map((item) => {
                console.log(item);
               return (
                   <div> 
-              
                <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
                </div>
             )})}     
       </Container>
     </div>
-//       )
-//   } else { 
-//       return (
-//         <div>
-//         <h1> In final else statement</h1>
-//         <Nav></Nav>
-//         <Button variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-//         <Button variant="contained" size="small" onClick={update} > Update a job </Button>
-//         <Button variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
-//     </div>
       )
-//   }
+
 };
 
 export default Items;

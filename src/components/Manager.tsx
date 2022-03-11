@@ -14,6 +14,7 @@ import Lists from './Lists';
 import UpdateItem from './UpdateItem';
 import UpdateList from './UpdateList';
 import ShowList from './ShowList';
+import '../CSS/main.css';
 
 
 const Manager = () => {

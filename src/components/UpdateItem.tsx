@@ -14,6 +14,7 @@ import Success from './Success';
 import Warning from './Warning';
 import { Container } from '@material-ui/core';
 import ItemCard from './ItemCard';
+import NavItem from './NavItem';
 
 interface IAppProps {
 }
@@ -38,6 +39,8 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
 
     const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false)
     const [showWarningModal, setShowWarningModal] = useState<boolean>(false)
+    const [idDel, setIdDel] = useState<Number>(0);
+
  // state to store the data we get from the back end
  const [items, setItems] = useState<any[]>([])
     
@@ -54,6 +57,18 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
   const update = () => {
       window.location.href = '/update'
   }
+  useEffect(() => {
+    // make the delete button work - this works but need to reselect show all
+    axios.delete(`http://localhost:8080/deleteItems/${idDel}`)
+    .then(() => {
+        console.log('list item deleted')
+    }).catch((error) => {
+     
+    }).then(() => {
+        // how to re-render the cards after deletion?
+      // setReload(true); 
+    });
+},[idDel]);
 
   const seeAll = () => {
       console.log('in seeAll function');
@@ -78,7 +93,7 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
           description: description,
           date: date,
           list_id: {
-            id: list_id
+          id: list_id
           } 
       };
    console.log(toUpdate);
@@ -116,13 +131,9 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
      
       <div>
      <Success/>
-     <h1> success modal</h1>
         <Nav></Nav>
-        <Button variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-        <Button variant="contained" size="small" onClick={update} > Update a job </Button>
-        <Button variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
-<FormGroup>
-  <h2> Update item</h2>
+        <NavItem></NavItem>
+        <FormGroup  id="form">
   <InputLabel htmlFor="itemId">Item ID</InputLabel>
   <Input 
   id="itemId" 
@@ -163,8 +174,8 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
   />
 </FormGroup>
 
-    <Button color="primary" onClick={() => submit()} >Submit</Button>
-    <Button color="primary" onClick={() => reset()}>Reset</Button>
+    <Button id="submitandreset" color="primary" onClick={() => submit()} >Submit</Button>
+    <Button id="submitandreset" color="primary" onClick={() => reset()}>Reset</Button>
     <Container 
         id="grid"> 
            {items.map((item) => {
@@ -180,12 +191,9 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
    );} else if ( showWarningModal === true) {
      return (
        <div>
-       <h1> warning modal</h1>
       <Nav></Nav>
-      <Button variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-        <Button variant="contained" size="small" onClick={update} > Update a job </Button>
-        <Button variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
-      <FormGroup>
+      <NavItem></NavItem>
+      <FormGroup  id="form">
       <h2> Update item</h2>
         <InputLabel htmlFor="itemId">Item ID</InputLabel>
         <Input 
@@ -227,8 +235,8 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
         />
       </FormGroup>
       
-          <Button color="primary" onClick={() => submit()} >Submit</Button>
-          <Button color="primary" onClick={() => reset()}>Reset</Button>
+          <Button id="submitandreset" color="primary" onClick={() => submit()} >Submit</Button>
+          <Button id="submitandreset" color="primary" onClick={() => reset()}>Reset</Button>
           <Container 
         id="grid"> 
            {items.map((item) => {
@@ -245,13 +253,9 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
    } else {
       return (
         <div>
-        <h1> No modal</h1>
        <Nav></Nav>
-       <Button variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-        <Button variant="contained" size="small" onClick={update} > Update a job </Button>
-        <Button variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
- 
-       <FormGroup>
+       <NavItem></NavItem> 
+       <FormGroup  id="form">
        <h2> Update item</h2>
          <InputLabel htmlFor="itemId">Item ID</InputLabel>
          <Input 
@@ -293,9 +297,9 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
          />
        </FormGroup>
        
-           <Button color="primary" onClick={() => submit()} >Submit</Button>
-           <Button color="primary" onClick={() => reset()}>Reset</Button>
-           <Container 
+           <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
+           <Button id="submitandreset" variant="contained" color="primary" onClick={() => reset()}>Reset</Button>
+           {/* <Container 
         id="grid"> 
            {items.map((item) => {
                console.log(item);
@@ -305,7 +309,7 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
                <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
                </div>
             )})}     
-      </Container>
+      </Container> */}
              </div>
       )
    }

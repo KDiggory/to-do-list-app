@@ -9,6 +9,10 @@ import FormGroup from '@material-ui/core/FormGroup';
 import axios from "axios"; 
 import { useEffect, useState } from "react";
 import { Button } from '@material-ui/core';
+import Nav from './Nav';
+import NavList from './NavList'
+import { Container } from '@material-ui/core';
+import ListCard from './ListCard';
 
 interface IAppProps {
 }
@@ -48,8 +52,10 @@ const UpdateList: React.FunctionComponent<IAppProps> = (props) => {
   
     return (
         <div>
+<Nav></Nav>
+<NavList></NavList>
   
-  <FormGroup>
+<FormGroup  id="form">
     <InputLabel htmlFor="itemId">List ID</InputLabel>
     <Input 
     id="itemId" 
@@ -73,8 +79,15 @@ const UpdateList: React.FunctionComponent<IAppProps> = (props) => {
     />
   </FormGroup>
   
-      <Button color="primary" onClick={() => submit()} >Submit</Button>
-      <Button color="primary" onClick={() => reset()}>Reset</Button>
+      <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
+      <Button id="submitandreset" variant="contained" color="primary" onClick={() => reset()}>Reset</Button>
+      {/* <Container 
+      id="grid"> 
+         {lists.map((list) => {
+          console.log(list) // just printing object object - so no 
+          return <ListCard name={list.name} description={list.description} id={list.id} ></ListCard>
+         })}     
+    </Container> */}
         </div>
      );
   

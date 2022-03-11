@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import UpdateList from './UpdateList';
 import ShowList from './ShowList';
 import Nav from './Nav';
+import NavList from './NavList';
 
 interface IAppProps {
 }
@@ -25,10 +26,8 @@ const Lists: React.FunctionComponent<IAppProps> = (props) => {
       <div>
           <Nav>
           </Nav>
+          <NavList></NavList>
           <h1>
-              <Button onClick={newlist} > Create List </Button>
-              <Button onClick={updatelist}> Update List </Button>
-              <Button onClick={showlist}> Show all Lists </Button>
               
           </h1>
       </div>

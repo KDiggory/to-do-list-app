@@ -1,0 +1,72 @@
+#navbar {
+    background-color:cadetblue;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1.5%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    
+}
+
+#navButton {
+    flex-direction: row;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-weight: bold;
+    background-color:cadetblue;
+}
+
+#mainNavButton {
+    flex-direction: row;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-weight: bold;
+    background-color: rgb(22, 68, 70);
+    color: white;
+
+}
+
+.card {
+    border: 10px;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    overflow:hidden;
+    border-radius:20px;
+    color: cadetblue;
+     box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+     padding: 10px;
+     padding-top: 10px;
+    
+  }
+
+  #line {
+    margin-bottom: 2% ;
+
+  }
+  
+  #submitandreset {
+    flex-direction: row;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:cadetblue;
+    
+  }
+
+  #form {
+    width: 100%;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 5%;
+  }
+
+  #inCard {
+      background-color:cadetblue;
+  }
+
+  #inCardDel {
+    background-color:rgb(153, 24, 24);
+}
+
+#itemcard {
+    margin-bottom: 25%;
+}

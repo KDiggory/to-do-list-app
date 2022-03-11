@@ -74,8 +74,8 @@ const ItemCard: React.FunctionComponent<IAppProps> = (props) => {
                 <Typography >
                  <h5> List ID: cant get this working</h5> 
                 </Typography>
-                <Button variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
-                <Button variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
+                <Button id="inCard" variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
+                <Button id="inCardDel" variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
                 </CardContent>
                  </Card> 
                  </Grid>

@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateItem from './CreateItem';
 import CreateList from './CreateList';
 import Nav from './Nav';
+import NavList from './NavList';
 import Items from './Items';
 import Lists from './Lists';
 import UpdateItem from './UpdateItem';

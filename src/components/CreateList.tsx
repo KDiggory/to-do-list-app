@@ -9,6 +9,8 @@ import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import axios from "axios"; 
 import { useEffect, useState } from "react";
+import NavList from './NavList';
+import Nav from './Nav';
 
 interface IAppProps {
 }
@@ -46,8 +48,9 @@ const CreateList: React.FunctionComponent<IAppProps> = (props) => {
     const [description, setDescription] = useState<String>("");
   return (
       <div>
-          <FormGroup>
-              <h2> Showing the list page </h2>
+          <Nav></Nav>
+          <NavList></NavList>
+          <FormGroup  id="form">
   <InputLabel htmlFor="itemName">List name</InputLabel>
   <Input 
   id="itemName" 
@@ -66,8 +69,9 @@ const CreateList: React.FunctionComponent<IAppProps> = (props) => {
   />
 </FormGroup>
 
-    <Button color="primary" onClick={() => submit()} >Submit</Button>
-    <Button color="primary" onClick={() => reset()}>Reset</Button>
+    <Button id="submitandreset"  variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
+    <Button id="submitandreset"  variant="contained" color="primary" onClick={() => reset()}>Reset</Button>
+
       </div>
   ) ;
 };

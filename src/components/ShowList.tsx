@@ -16,24 +16,13 @@ import Grid from '@material-ui/core/Grid';
 import GridListTile from '@material-ui/core/GridListTile';
 import '../CSS/ListCardStyle.css';
 import Nav from './Nav';
+import NavList from './NavList';
 
 interface IAppProps {
 }
 
 const ShowList: React.FunctionComponent<IAppProps> = (props) => {
 
-   //  const styles = () => ({
-   //      root: {
-   //        display: 'flex',
-   //        flexWrap: 'wrap',
-   //        justifyContent: 'space-around',
-   //        overflow: 'hidden'
-   //      },
-   //      gridList: {
-   //        width: 500,
-   //        height: 450,
-   //      },
-   //    });
 
       // state to store the info to use for searches
    const [listId, setListId] = useState(0);
@@ -68,28 +57,13 @@ const ShowList: React.FunctionComponent<IAppProps> = (props) => {
 
 
 
-if(error == true) {
+if(error === true) {
     return (
        
        <div>
-          <Button onClick={() => setClick(true)}>Show all</Button>
-      <br></br>
-      <Input 
-id="itemId" 
-defaultValue="Enter item id here"
-type="number"
-value={listId}
-onChange={(e) => setListId(+e.target.value)}
-/>
-      {/* <Button onClick={searchById}>Search By Id</Button> */}
-      <br></br>
-      <Input 
-id="itemId" 
-defaultValue="Enter list name here"
-type="text"
-value={listName}
-onChange={(e) => setListName(e.target.value)}
-/>
+          <Nav></Nav>
+          <NavList></NavList>
+         
       {/* <Button onClick={searchByList}>Search by list</Button> */}
 
     <Container>
@@ -100,6 +74,8 @@ onChange={(e) => setListName(e.target.value)}
 } else if (loaded) {
     return (
     <div>
+       <Nav></Nav>
+          <NavList></NavList>
       <Button onClick={() => setClick(true)}>Show all</Button>
       <br></br>
       <Input 
@@ -109,7 +85,6 @@ type="number"
 value={listId}
 onChange={(e) => setListId(+e.target.value)}
 />
-      {/* <Button onClick={searchById}>Search By Id</Button> */}
       <br></br>
       <Input 
 id="itemId" 
@@ -118,7 +93,6 @@ type="text"
 value={listName}
 onChange={(e) => setListName(e.target.value)}
 />
-      {/* <Button onClick={searchByList}>Search by list</Button> */}
       <Container 
       id="grid"> 
          {lists.map((list) => {
