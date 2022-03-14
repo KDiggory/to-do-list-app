@@ -31,7 +31,6 @@ const MainPage: React.FunctionComponent<IAppProps> = () => {
   return (
       <div> 
         <h1> The only to do list you will ever need </h1>
-        
           <Nav>
           </Nav>
           

@@ -15,7 +15,8 @@ import UpdateItem from './UpdateItem';
 import UpdateList from './UpdateList';
 import ShowList from './ShowList';
 import '../CSS/main.css';
-
+import SeeAll from './SeeAll';
+import SeeAllCompleted from './SeeAllCompleted'
 
 const Manager = () => {
     return ( 
@@ -30,6 +31,8 @@ const Manager = () => {
             <Route  path="/createlist" element={<CreateList />}></Route>
             <Route  path="/updatelist" element={<UpdateList />}></Route>
             <Route  path="/showlist" element={<ShowList />}></Route>
+            <Route  path="/seeAll" element={<SeeAll />}></Route>
+            <Route  path="/seeAllCompleted" element={<SeeAllCompleted />}></Route>
 
         </Routes>
         </BrowserRouter>

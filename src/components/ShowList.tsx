@@ -30,11 +30,6 @@ const ShowList: React.FunctionComponent<IAppProps> = (props) => {
    // state to store the data we get from the back end
    const [lists, setLists] = useState<any[]>([])
     
-   // State to check if the API has errored
-   const [error, setError] = useState(null);
-
-   // State to check if the data has loaded
-   const [loaded, setLoaded] = useState(false);
 
    // has the search button been clicked?
    const [click, setClick] = useState(false);
@@ -45,9 +40,7 @@ const ShowList: React.FunctionComponent<IAppProps> = (props) => {
     .then((res) => {
        console.log(res.data);
        setLists(res.data);
-       setLoaded(true);
     }).catch((error) => {
-       setError(error);
     }).then(() => {
        console.log('****** the returned data ******')
        console.log(lists);
@@ -56,22 +49,6 @@ const ShowList: React.FunctionComponent<IAppProps> = (props) => {
 },[]);
 
 
-
-if(error === true) {
-    return (
-       
-       <div>
-          <Nav></Nav>
-          <NavList></NavList>
-         
-      {/* <Button onClick={searchByList}>Search by list</Button> */}
-
-    <Container>
-          <h2> There is an error, please refresh the page </h2>
-    </Container>
-       </div>
-     ) 
-} else if (loaded) {
     return (
     <div>
        <Nav></Nav>
@@ -103,13 +80,6 @@ onChange={(e) => setListName(e.target.value)}
 
     </div>
  );
-
-} else {
- return (
-    <div> The final else statement: Something bad has happened </div>
-
- )
-};
 };
 
 export default ShowList;

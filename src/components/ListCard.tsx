@@ -27,6 +27,7 @@ const ListCard: React.FunctionComponent<IAppProps> = (props) => {
 
     const [idUpdate, setIdUpdate] = useState<Number>(0);
     const [idDel, setIdDel] = useState<Number>(0);
+   
 
     const [updateItem, setUpdateItem] = useState({});
 
@@ -59,6 +60,8 @@ useEffect(() => {
         
     })
 },[listId]);
+
+
 
 
 // THIS DOESNT WORK - does it need to be in the parent class??
@@ -99,9 +102,7 @@ useEffect(() => {
                 </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                {/* <Button id="inCard" variant="contained" size="small" onClick={() =>setListId(props.id)}> Items on this list </Button>   */}
                 <Button id="inCard" variant="contained" size="small" onClick={() => setIdUpdate(props.id)} href="/update"> Update </Button>
-                {/* href="#outlined-buttons" - if cant get the update bars next to words */}
                 <Button id="inCardDel" variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
                 </CardActions>    
                 </Card>

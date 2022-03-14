@@ -144,11 +144,10 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
     }
     
   
-    if (showSuccessModal === true) {
-      return ( 
-       
+  
+      return (
         <div>
-       <Success/>
+
          <Nav>
           </Nav>
         <NavItem></NavItem>
@@ -201,122 +200,7 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
             )})}     
       </Container>
     </div>
-      ) } else if (showWarningModal === true ) {
-        return (
-          <div>
-            <Warning/>
-         <Nav>
-          </Nav>
-          <NavItem></NavItem>
-          <FormGroup  id="form">
-  <InputLabel htmlFor="itemName">Name</InputLabel>
-  <Input 
-  id="itemName" 
-  type="text"
-  value={itemName}
-  onChange={(e) => setItemName(e.target.value)}
-  />
-  <InputLabel htmlFor="itemDescription">Description</InputLabel>
-  <Input 
-  id="itemDescription"
-  type="text"
-  value={description}
-  onChange={(e) => setDescription(e.target.value)}
-  />
-  <InputLabel htmlFor="itemDescription">List</InputLabel>
-  <Input 
-  id="list"
-  type="number"
-  value={list_id}
-  onChange={(e) => setListID(+e.target.value)}
-  />
-  <TextField
-    id="date"
-    label="Date due"
-    type="date"
-    defaultValue="2017-05-24"
-    value={date}
-    onChange={(e) => setDate(e.target.value)}
-    InputLabelProps={{
-      shrink: true,
-    }}
-  />
-</FormGroup>
-
-    <Button id="submitandreset"  variant="contained"color="primary" onClick={() => submit()} >Submit</Button>
-    <Button id="submitandreset" variant="contained" color="primary" onClick={() => resetForm()}>Reset</Button>
-    <Container 
-        id="grid"> 
-           {items.map((item) => {
-               console.log(item);
-              return (
-                  <div> 
-              
-               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
-               </div>
-            )})}     
-      </Container>
-    </div>
-        )
-      } else {
-        return (
-              <div>
-                <Warning/>
-             <Nav>
-              </Nav>
-      <NavItem></NavItem>
-      <FormGroup  id="form">
-
-      <InputLabel htmlFor="itemName">Name</InputLabel>
-      <Input 
-      id="itemName" 
-      type="text"
-      value={itemName}
-      onChange={(e) => setItemName(e.target.value)}
-      />
-      <InputLabel htmlFor="itemDescription">Description</InputLabel>
-      <Input 
-      id="itemDescription"
-      type="text"
-      value={description}
-      onChange={(e) => setDescription(e.target.value)}
-      />
-      <InputLabel htmlFor="itemDescription">List</InputLabel>
-      <Input 
-      id="list"
-      type="number"
-      value={list_id}
-      onChange={(e) => setListID(+e.target.value)}
-      />
-      <TextField
-        id="date"
-        label="Date due"
-        type="date"
-        defaultValue="2017-05-24"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </FormGroup>
-    
-        <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
-        <Button id="submitandreset" variant="contained" color="primary" onClick={() => resetForm()}>Reset</Button>
-        <Container 
-        id="grid"> 
-           {items.map((item) => {
-               console.log(item);
-              return (
-                  <div> 
-              
-               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
-               </div>
-            )})}     
-      </Container>
-        </div>
-        )
-      }
+      ) 
     }
 
 
