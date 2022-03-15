@@ -48,20 +48,7 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
 
     const seeAll = () => {
       window.location.href = '/seeAll'
-    //     console.log('in seeAll function');
-    // axios
-    //   .get('http://localhost:8080/getAll')
-    //   .then((response) => {
-    //     console.log('after axios req');
-    //     // console.log(response);
-    //     setItems(response.data);
-    //     setLoaded(true);
-    //     console.log(loaded);
-    //     console.log("Got results, page should load.");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+
     }
 
     const seeAllComplete = () => {
@@ -71,10 +58,10 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
   return (
       <div>
         <hr id="line"></hr>
-        <Button id="navButton" variant="contained" size="small" onClick={newitem} > Make a new job </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={update} > Update a job </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={seeAll} > See all jobs </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={seeAllComplete} > See all completed jobs </Button>
+        <Button id="navButton" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
+        <Button id="navButton" variant="contained" size="small" onClick={update} > Update an item </Button>
+        <Button id="navButton" variant="contained" size="small" onClick={seeAll} > See all items </Button>
+        <Button id="navButton" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
         <hr id="line"></hr>
         <Container 
         id="grid"> 
@@ -92,12 +79,13 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
                console.log(itemComplete);
               return (
                   <div> 
-               <CompletedCard  itemName={itemComplete.name} itemDescription={itemComplete.description} itemDate={itemComplete.date} id={itemComplete.id} ></CompletedCard>
+               <CompletedCard  id={itemComplete.id} itemName={itemComplete.name} itemDescription={itemComplete.description} itemDate={itemComplete.date} ></CompletedCard>
                </div>
             )})}     
       </Container>
       </div>
   );
 };
+
 
 export default NavItem;

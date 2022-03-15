@@ -56,27 +56,33 @@ const UpdateList: React.FunctionComponent<IAppProps> = (props) => {
 <NavList></NavList>
   
 <FormGroup  id="form">
+<br></br>
     <InputLabel htmlFor="itemId">List ID</InputLabel>
+    <br></br>
     <Input 
     id="itemId" 
     type="number"
     value={listId}
     onChange={(e) => setListId(+e.target.value)} // this should make it a number for some reason, not sure why
-    />
+    /><br></br>
     <InputLabel htmlFor="itemName">Item name</InputLabel>
+    <br></br>
     <Input 
     id="itemName" 
     type="text"
     value={itemName}
     onChange={(e) => setItemName(e.target.value)}
     />
+    <br></br>
     <InputLabel htmlFor="itemDescription">Description</InputLabel>
+    <br></br>
     <Input 
     id="itemDescription"
     type="text"
     value={description}
     onChange={(e) => setDescription(e.target.value)}
     />
+    <br></br>
   </FormGroup>
   
       <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>

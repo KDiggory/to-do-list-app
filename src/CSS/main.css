@@ -48,7 +48,9 @@
     flex-direction: row;
     margin-left: 2%;
     margin-right: 2%;
-    background-color:cadetblue;
+    background-color:rgb(22, 68, 70);
+    color: white;
+    
     
   }
 
@@ -60,7 +62,7 @@
   }
 
   #inCard {
-      background-color:cadetblue;
+      background-color:rgb(22, 68, 70);
   }
 
   #inCardDel {
@@ -69,4 +71,23 @@
 
 #itemcard {
     margin-bottom: 25%;
+}
+
+#form {
+  margin-top: 25px;
+  margin-left: 35%;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    min-height: 100px;
+    max-height: 700px;
+    text-align: center;
+    border-radius: 10px;
+    border: 10px;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(171, 191, 192);
+    padding: 15px;
+
 }

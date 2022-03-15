@@ -70,13 +70,16 @@ type="text"
 value={listName}
 onChange={(e) => setListName(e.target.value)}
 />
-      <Container 
-      id="grid"> 
+<Grid container > 
          {lists.map((list) => {
-          console.log(list) // just printing object object - so no 
-          return <ListCard name={list.name} description={list.description} id={list.id} ></ListCard>
+             console.log(list);
+          return ( 
+          <div>
+               <ListCard name={list.name} description={list.description} id={list.id} ></ListCard>
+          </div> 
+          )
          })}     
-    </Container>
+    </Grid>
 
     </div>
  );

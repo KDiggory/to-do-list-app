@@ -17,6 +17,11 @@ interface IAppProps {
     itemDescription: String,
     itemDate: String,
     id: Number
+  //   list_id: {
+  //     name: String,
+  //     description: String,
+  //     id: Number
+  // }
 }
 
 const CompletedCard: React.FunctionComponent<IAppProps> = (props) => {
@@ -41,7 +46,7 @@ useEffect(() => {
     alignItems="center"
     id="grid">
   
-        <Card sx={{ minWidth: 350 }}>
+        <Card id="itemcard" sx={{ minWidth: 350 }}>
         <CardContent>
         <Typography variant="h5" component="div">
         <h3> {props.itemName}</h3> 

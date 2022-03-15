@@ -126,7 +126,7 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
   }
 
    
-   if (showSuccessModal === true) {
+   
     return ( 
      
       <div>
@@ -134,14 +134,18 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
         <Nav></Nav>
         <NavItem></NavItem>
         <FormGroup  id="form">
+        <br></br>
   <InputLabel htmlFor="itemId">Item ID</InputLabel>
+  <br></br>
   <Input 
   id="itemId" 
   type="number"
   value={itemId}
   onChange={(e) => setItemId(+e.target.value)} // this should make it a number for some reason, not sure why
   />
+  <br></br>
   <InputLabel htmlFor="itemName">Item name</InputLabel>
+  <br></br>
   <Input 
   id="itemName" 
   type="text"
@@ -149,19 +153,23 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
   onChange={(e) => setItemName(e.target.value)}
   />
   <InputLabel htmlFor="itemDescription">Description</InputLabel>
+  <br></br>
   <Input 
   id="itemDescription"
   type="text"
   value={description}
   onChange={(e) => setDescription(e.target.value)}
   />
+  <br></br>
    <InputLabel htmlFor="itemDescription">List</InputLabel>
+   <br></br>
   <Input 
   id="list"
   type="number"
   value={list_id}
   onChange={(e) => setListID(+e.target.value)}
   />
+  <br></br>
   <TextField
     id="date"
     label="Date due"
@@ -172,6 +180,7 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
       shrink: true,
     }}
   />
+  <br></br>
 </FormGroup>
 
     <Button id="submitandreset" color="primary" onClick={() => submit()} >Submit</Button>
@@ -188,132 +197,7 @@ const UpdateItem: React.FunctionComponent<IAppProps> = () => {
             )})}     
       </Container>
       </div>
-   );} else if ( showWarningModal === true) {
-     return (
-       <div>
-      <Nav></Nav>
-      <NavItem></NavItem>
-      <FormGroup  id="form">
-      <h2> Update item</h2>
-        <InputLabel htmlFor="itemId">Item ID</InputLabel>
-        <Input 
-        id="itemId" 
-        type="number"
-        value={itemId}
-        onChange={(e) => setItemId(+e.target.value)} // this should make it a number for some reason, not sure why
-        />
-        <InputLabel htmlFor="itemName">Item name</InputLabel>
-        <Input 
-        id="itemName" 
-        type="text"
-        value={itemName}
-        onChange={(e) => setItemName(e.target.value)}
-        />
-        <InputLabel htmlFor="itemDescription">Description</InputLabel>
-        <Input 
-        id="itemDescription"
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        />
-         <InputLabel htmlFor="itemDescription">List</InputLabel>
-  <Input 
-  id="list"
-  type="number"
-  value={list_id}
-  onChange={(e) => setListID(+e.target.value)}
-  />
-        <TextField
-          id="date"
-          label="Date due"
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </FormGroup>
-      
-          <Button id="submitandreset" color="primary" onClick={() => submit()} >Submit</Button>
-          <Button id="submitandreset" color="primary" onClick={() => reset()}>Reset</Button>
-          <Container 
-        id="grid"> 
-           {items.map((item) => {
-               console.log(item);
-              return (
-                  <div> 
-              
-               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
-               </div>
-            )})}     
-      </Container>
-            </div>
-     )
-   } else {
-      return (
-        <div>
-       <Nav></Nav>
-       <NavItem></NavItem> 
-       <FormGroup  id="form">
-       <h2> Update item</h2>
-         <InputLabel htmlFor="itemId">Item ID</InputLabel>
-         <Input 
-         id="itemId" 
-         type="number"
-         value={itemId}
-         onChange={(e) => setItemId(+e.target.value)} // this should make it a number for some reason, not sure why
-         />
-         <InputLabel htmlFor="itemName">Item name</InputLabel>
-         <Input 
-         id="itemName" 
-         type="text"
-         value={itemName}
-         onChange={(e) => setItemName(e.target.value)}
-         />
-         <InputLabel htmlFor="itemDescription">Description</InputLabel>
-         <Input 
-         id="itemDescription"
-         type="text"
-         value={description}
-         onChange={(e) => setDescription(e.target.value)}
-         />
-          <InputLabel htmlFor="itemDescription">List</InputLabel>
-  <Input 
-  id="list"
-  type="number"
-  value={list_id}
-  onChange={(e) => setListID(+e.target.value)}
-  />
-         <TextField
-           id="date"
-           label="Date due"
-           type="date"
-           value={date}
-           onChange={(e) => setDate(e.target.value)}
-           InputLabelProps={{
-             shrink: true,
-           }}
-         />
-       </FormGroup>
-       
-           <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
-           <Button id="submitandreset" variant="contained" color="primary" onClick={() => reset()}>Reset</Button>
-           {/* <Container 
-        id="grid"> 
-           {items.map((item) => {
-               console.log(item);
-              return (
-                  <div> 
-              
-               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
-               </div>
-            )})}     
-      </Container> */}
-             </div>
-      )
-   }
-
-};
+   );}
+;
 
 export default UpdateItem;

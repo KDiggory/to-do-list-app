@@ -36,7 +36,7 @@ const SeeAllCompleted: React.FunctionComponent<IAppProps> = (props) => {
     <Nav></Nav>
     <NavItem></NavItem>
     <Box sx={{ flexGrow: 1 }}>
-    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
+    <Grid container spacing={{ xs: 3, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
        {itemsComplete.map((item) => {
           return (
               <div> 

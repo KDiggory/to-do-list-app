@@ -18,6 +18,7 @@ import { Container } from '@material-ui/core';
 import ItemCard from './ItemCard';
 import NavList from './NavList';
 import NavItem from './NavItem';
+import Grid from '@mui/material/Grid';
 
 
 interface IAppProps {
@@ -120,7 +121,6 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
         resetForm(); 
     };
      useEffect(() => {
-    // make the delete button work - this works but need to reselect show all
     axios.delete(`http://localhost:8080/deleteItems/${idDel}`)
     .then(() => {
         console.log('list item deleted')
@@ -128,7 +128,6 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
      
     }).then(() => {
         // how to re-render the cards after deletion?
-      // setReload(true); 
     });
 },[idDel]);
 
@@ -152,27 +151,34 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
           </Nav>
         <NavItem></NavItem>
           <FormGroup  id="form">
+          <br></br>
   <InputLabel htmlFor="itemName">Name</InputLabel>
+  <br></br>
   <Input 
   id="itemName" 
   type="text"
   value={itemName}
   onChange={(e) => setItemName(e.target.value)}
   />
+  <br></br>
   <InputLabel htmlFor="itemDescription">Description</InputLabel>
+  <br></br>
   <Input 
   id="itemDescription"
   type="text"
   value={description}
   onChange={(e) => setDescription(e.target.value)}
   />
+  <br></br>
   <InputLabel htmlFor="itemDescription">List</InputLabel>
+  <br></br>
   <Input 
   id="list"
   type="number"
   value={list_id}
   onChange={(e) => setListID(+e.target.value)}
   />
+  <br></br>
   <TextField
     id="date"
     label="Date due"
@@ -184,12 +190,12 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
       shrink: true,
     }}
   />
+  <br></br>
 </FormGroup>
 
     <Button id="submitandreset" variant="contained" color="primary" onClick={() => submit()} >Submit</Button>
     <Button id="submitandreset" variant="contained" color="primary" onClick={() => resetForm()}>Reset</Button>
-    <Container 
-        id="grid"> 
+    <Grid container spacing={{ xs: 3, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
            {items.map((item) => {
                console.log(item);
               return (
@@ -198,7 +204,7 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
                <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
                </div>
             )})}     
-      </Container>
+      </Grid>
     </div>
       ) 
     }

@@ -11,6 +11,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NavList from './NavList';
 import Nav from './Nav';
+import '../CSS/main.css';
 
 interface IAppProps {
 }
@@ -51,7 +52,9 @@ const CreateList: React.FunctionComponent<IAppProps> = (props) => {
           <Nav></Nav>
           <NavList></NavList>
           <FormGroup  id="form">
+          <br></br>
   <InputLabel htmlFor="itemName">List name</InputLabel>
+  <br></br>
   <Input 
   id="itemName" 
   defaultValue="Enter the item name here"
@@ -59,7 +62,9 @@ const CreateList: React.FunctionComponent<IAppProps> = (props) => {
   value={listName}
   onChange={(e) => setListName(e.target.value)}
   />
+  <br></br>
   <InputLabel htmlFor="itemDescription">List description</InputLabel>
+  <br></br>
   <Input 
   id="itemDescription"
   defaultValue="Enter a description here"
@@ -67,6 +72,7 @@ const CreateList: React.FunctionComponent<IAppProps> = (props) => {
   value={description}
   onChange={(e) => setDescription(e.target.value)}
   />
+  <br></br>
 </FormGroup>
 
     <Button id="submitandreset"  variant="contained" color="primary" onClick={() => submit()} >Submit</Button>

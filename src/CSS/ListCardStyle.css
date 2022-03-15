@@ -1,25 +1,26 @@
 #itemcard {
-    align-items: right;
+  margin-top: 25px;
+  margin-left: 60px;
+    align-items: center;
     width: 70%;
     height: 80%;
-    max-height: 1000px;
-    padding: auto;
+    min-height: 100px;
+    max-height: 700px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f;
     border: 10px;
-    align-items: center;
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    border-radius: 40px;
+    border-radius: 60px;
     color: black;
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    padding-top: 10px;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+    display: 'flex';
+    height: '100%';
+    background-color: rgb(171, 191, 192);
+  
 
   }
 
   #grid {
-    display: flex; /* or inline-flex */
+    display: flex;
     flex-direction: row;
     justify-content: center;
   }
@@ -27,3 +28,6 @@
   #cardTitle {
     text-align:left
   }
+
+   
+ 
