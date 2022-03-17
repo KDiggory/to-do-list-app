@@ -16,12 +16,40 @@ import Success from './Success';
 import Warning from './Warning';
 import { Container } from '@material-ui/core';
 import ItemCard from './ItemCard';
-import CompletedCard from './CompletedCard'
+import CompletedCard from './CompletedCard';
+import Joyride from 'react-joyride';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 interface IAppProps {
 }
 
-const NavItem: React.FunctionComponent<IAppProps> = (props) => {
+const NavItem: React.FunctionComponent<IAppProps> = (props, state) => {
+
+  const [run, setRun] = useState<boolean>(false);
+
+    // trying react joyride
+     state = {
+        run: run,
+          steps: [
+              {
+                  target: '#navButton1',
+                  content: 'This button will show you all of the items'
+              },
+              {
+                target: '#navButton2',
+                content: 'This button takes you to the page to make a new item'
+            },
+            {
+                target: '#navButton3',
+                content: 'This button takes you to the page for updating an item'
+            },
+            {
+              target: '#navButton4',
+              content: 'This button will show you all of the items that have been added to the completed list'
+          },
+
+          ]
+      }
 
     const [click, setClick] = useState(false);
    // state to store the data we get from the back end
@@ -58,12 +86,29 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
     }
   return (
       <div>
+        <Joyride 
+          // this sets the steps for each it to run through
+          steps = {state.steps}
+          // this sets it as running
+          run={run}
+          // this means it goes from one to the next
+          continuous={true}
+            // this is how they look
+          styles={{
+              options:{
+                  arrowColor: '#caddde',
+                  backgroundColor: '#caddde',
+                  primaryColor: '#79b9bd',
+                  width: 900,
+                  zIndex:1000,
+              }
+          }}/>
         <hr id="line"></hr>
-        <Button id="navButton" variant="contained" size="small" onClick={seeAll} > See all items </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={update} > Update an item </Button>
-        
-        <Button id="navButton" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
+        <Button id="navButton1" variant="contained" size="small" onClick={seeAll} > See all items </Button>
+        <Button id="navButton2" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
+        <Button id="navButton3" variant="contained" size="small" onClick={update} > Update an item </Button>
+        <Button id="navButton4" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
+        <Button id="help" size="small" onClick={()=> setRun(!run)} ><HelpOutlineIcon/> </Button>
         <hr id="line"></hr>
         <Container 
         id="grid"> 
@@ -81,7 +126,7 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
                console.log(itemComplete);
               return (
                   <div> 
-               <CompletedCard  id={itemComplete.id} itemName={itemComplete.name} itemDescription={itemComplete.description} itemDate={itemComplete.date} ></CompletedCard>
+               <CompletedCard  id={itemComplete.id} itemName={itemComplete.name} itemDescription={itemComplete.description} itemDate={itemComplete.date} list_id={itemComplete.list_id} ></CompletedCard>
                </div>
             )})}     
       </Container>

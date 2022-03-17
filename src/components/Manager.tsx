@@ -23,6 +23,7 @@ const Manager = () => {
         <div>
             <BrowserRouter>
         <Routes>
+            
         <Route  path="/" element={<MainPage />}></Route>
             <Route  path="/item" element={<Items />}></Route>
             <Route  path="/list" element={<Lists />}></Route>

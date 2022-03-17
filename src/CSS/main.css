@@ -17,14 +17,38 @@
     background-color:cadetblue;
 }
 
-#mainNavButton {
+ #mainNavhomepage{
     flex-direction: row;
     margin-left: 2%;
     margin-right: 2%;
     font-weight: bold;
     background-color: rgb(22, 68, 70);
     color: white;
+ }
+ #mainNavitems{
+  flex-direction: row;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-weight: bold;
+  background-color: rgb(22, 68, 70);
+  color: white;
+}
+#mainNavlists{
+  flex-direction: row;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-weight: bold;
+  background-color: rgb(22, 68, 70);
+  color: white;
+}
 
+.MuiButton-contained {
+  flex-direction: row;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-weight: bold;
+  background-color: rgb(22, 68, 70);
+  color: white;
 }
 
 .card {
