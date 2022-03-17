@@ -41,21 +41,9 @@ const NavList: React.FunctionComponent<IAppProps> = (props) => {
     }
 
     const seeAll = () => {
-        console.log('in seeAll function');
-    axios
-      .get('http://localhost:8080/getAllLists')
-      .then((response) => {
-        console.log('after axios req');
-        // console.log(response);
-        setItems(response.data);
-        setLoaded(true);
-        console.log(loaded);
-        console.log("Got results, page should load.");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
+      window.location.href = '/showlist'
+  }
+
   return (
       <div>
           <hr id="line"></hr>

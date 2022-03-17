@@ -53,23 +53,7 @@ const ShowList: React.FunctionComponent<IAppProps> = (props) => {
     <div>
        <Nav></Nav>
           <NavList></NavList>
-      <Button onClick={() => setClick(true)}>Show all</Button>
       <br></br>
-      <Input 
-id="itemId" 
-defaultValue="Enter item id here"
-type="number"
-value={listId}
-onChange={(e) => setListId(+e.target.value)}
-/>
-      <br></br>
-      <Input 
-id="itemId" 
-defaultValue="Enter list name here"
-type="text"
-value={listName}
-onChange={(e) => setListName(e.target.value)}
-/>
 <Grid container > 
          {lists.map((list) => {
              console.log(list);

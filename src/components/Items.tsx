@@ -25,25 +25,23 @@ const Items : React.FunctionComponent<IAppProps> = (props) => {
    // State to check if the data has loaded
    const [loaded, setLoaded] = useState(false);
 
+   const [page, setPage] = useState<boolean> (false);
 
+   useEffect (() => {
+      console.log('going to see all')
+      window.location.href = '/seeAll'
+
+    }, [page]);
+
+    useEffect (() => {
+       console.log('changing set page')
+       setPage(true)
+      },[]);
     
-
       return (
         <div>
         <Nav></Nav>
         <NavItem></NavItem>
-        {/* <Container 
-        id="grid"> 
-           {items.map((item) => {
-               console.log(item);
-              return (
-                  <div> 
-              
-               <ItemCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></ItemCard>
-          
-               </div>
-            )})}     
-      </Container> */}
     </div>
       )
 

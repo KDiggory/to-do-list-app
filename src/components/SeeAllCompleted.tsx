@@ -35,18 +35,16 @@ const SeeAllCompleted: React.FunctionComponent<IAppProps> = (props) => {
       <div> 
     <Nav></Nav>
     <NavItem></NavItem>
-    <Box sx={{ flexGrow: 1 }}>
-    <Grid container spacing={{ xs: 3, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
+    
+    <Grid container > 
        {itemsComplete.map((item) => {
           return (
               <div> 
-           <Grid item xs={2} sm={4} md={4} key={item.id}>
-           <CompletedCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} ></CompletedCard>
-           </Grid>
+           <CompletedCard  itemName={item.name} itemDescription={item.description} itemDate={item.date} id={item.id} list_id={item.list_id} ></CompletedCard>
            </div>
         )})}     
  </Grid>
-</Box>
+
   </div>
   )
 };

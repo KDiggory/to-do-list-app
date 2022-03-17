@@ -120,6 +120,7 @@ const CreateItem : React.FunctionComponent<IAppProps> = () => {
         })
         resetForm(); 
     };
+    
      useEffect(() => {
     axios.delete(`http://localhost:8080/deleteItems/${idDel}`)
     .then(() => {

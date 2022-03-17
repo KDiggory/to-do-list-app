@@ -34,6 +34,7 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
    // State to check if the data has loaded
    const [loaded, setLoaded] = useState(false);
 
+
     const newitem = () => {
         window.location.href = '/newitem'
     }
@@ -58,9 +59,10 @@ const NavItem: React.FunctionComponent<IAppProps> = (props) => {
   return (
       <div>
         <hr id="line"></hr>
+        <Button id="navButton" variant="contained" size="small" onClick={seeAll} > See all items </Button>
         <Button id="navButton" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
         <Button id="navButton" variant="contained" size="small" onClick={update} > Update an item </Button>
-        <Button id="navButton" variant="contained" size="small" onClick={seeAll} > See all items </Button>
+        
         <Button id="navButton" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
         <hr id="line"></hr>
         <Container 

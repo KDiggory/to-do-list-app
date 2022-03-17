@@ -23,9 +23,10 @@ const Nav: React.FunctionComponent<IAppProps> = (props) => {
 
   return (
       <div id="navbar">
+          <Button id="mainNavButton" variant="contained" size="small" onClick={homePage} >Home page</Button>
           <Button id="mainNavButton" variant="contained" size="small" onClick={toItem} >Items</Button>
           <Button id="mainNavButton" variant="contained" size="small" onClick={toList} >Lists</Button>
-          <Button id="mainNavButton" variant="contained" size="small" onClick={homePage} >Home page</Button>
+          
          
       </div>
    );

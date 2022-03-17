@@ -60,15 +60,15 @@ const UpdateList: React.FunctionComponent<IAppProps> = (props) => {
     <InputLabel htmlFor="itemId">List ID</InputLabel>
     <br></br>
     <Input 
-    id="itemId" 
+    id="listId" 
     type="number"
     value={listId}
     onChange={(e) => setListId(+e.target.value)} // this should make it a number for some reason, not sure why
     /><br></br>
-    <InputLabel htmlFor="itemName">Item name</InputLabel>
+    <InputLabel htmlFor="itemName">List name</InputLabel>
     <br></br>
     <Input 
-    id="itemName" 
+    id="listName" 
     type="text"
     value={itemName}
     onChange={(e) => setItemName(e.target.value)}
@@ -77,7 +77,7 @@ const UpdateList: React.FunctionComponent<IAppProps> = (props) => {
     <InputLabel htmlFor="itemDescription">Description</InputLabel>
     <br></br>
     <Input 
-    id="itemDescription"
+    id="listDescription"
     type="text"
     value={description}
     onChange={(e) => setDescription(e.target.value)}

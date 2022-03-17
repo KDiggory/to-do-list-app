@@ -17,16 +17,17 @@ interface IAppProps {
     itemDescription: String,
     itemDate: String,
     id: Number
-  //   list_id: {
-  //     name: String,
-  //     description: String,
-  //     id: Number
-  // }
+    list_id: {
+     id: Number | undefined
+ }
 }
 
 const CompletedCard: React.FunctionComponent<IAppProps> = (props) => {
 
+
 const [idDel, setIdDel] = useState<Number>();
+
+const [restore, setRestore] = useState<boolean>(false);
 
 useEffect(() => {
     console.log('should get to here')
@@ -39,14 +40,53 @@ useEffect(() => {
     });
 },[idDel]);
 
+useEffect(() => {
+  console.log('restoring item to list')
+  axios.delete(`http://localhost:8080/removeFromComplete/${idDel}`)
+  .then(() => {
+    console.log('item deleted');
+    readToComplete()
+  })
+  .catch(()=> {
+    
+  });
+},[restore]);
+
+interface newItem {
+  name: String,
+  description: String,
+  date: String, 
+  list_id: {
+    id: Number | undefined
+  } 
+}
+const readToComplete = () => {
+  const newItem: newItem = {
+    name: props.itemName,
+    description: props.itemDescription,
+    date: props.itemDate,
+    list_id: props.list_id
+}
+
+  axios.post('http://localhost:8080/createItems', newItem )
+  .then((res) => {
+    // handle success
+  console.log("list item created");
+   })
+   // handle error
+   .catch((error: Error) => {
+    console.log(error);
+  })
+};
+
+
   return (
     <Grid
     container
     justifyContent="center"
     alignItems="center"
     id="grid">
-  
-        <Card id="itemcard" sx={{ minWidth: 350 }}>
+        <Card id="itemcard" sx={{ minWidth: 350 }} >
         <CardContent>
         <Typography variant="h5" component="div">
         <h3> {props.itemName}</h3> 
@@ -65,10 +105,12 @@ useEffect(() => {
             </h5> 
        </Typography> */}
        <Button id="inCardDel" variant="contained" color="error" size="small" onClick={() => setIdDel(props.id)}> Delete </Button>
+       <Button id="inCard" variant="contained"  size="small" onClick={() => setRestore(true)}> Restore </Button>
        </CardContent>
         </Card> 
         </Grid>
    )
-};
+      }
+
 
 export default CompletedCard;
