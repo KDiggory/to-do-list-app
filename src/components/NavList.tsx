@@ -30,15 +30,15 @@ const NavList: React.FunctionComponent<IAppProps> = (props, state) => {
         run: run,
           steps: [
               {
-                  target: '#navButton1',
+                  target: '#newList',
                   content: 'This button will take you to the page to add a new list'
               },
               {
-                target: '#navButton2',
+                target: '#updateList',
                 content: 'This button takes you to the page to update a list'
             },
             {
-                target: '#navButton3',
+                target: '#allLists',
                 content: 'This button will show all the lists'
             },
           ]
@@ -86,9 +86,9 @@ const NavList: React.FunctionComponent<IAppProps> = (props, state) => {
               }
           }}/>
           <hr id="line"></hr>
-        <Button id="navButton1" variant="contained" size="small" onClick={newitem} > Make a new list </Button>
-        <Button id="navButton2" variant="contained" size="small" onClick={update} > Update a list </Button>
-        <Button id="navButton3" variant="contained" size="small" onClick={seeAll} > See all lists </Button>
+        <Button id="newList" className="navButton" variant="contained" size="small" onClick={newitem} > Make a new list </Button>
+        <Button id="updateList" className="navButton" variant="contained" size="small" onClick={update} > Update a list </Button>
+        <Button id="allLists" className="navButton" variant="contained" size="small" onClick={seeAll} > See all lists </Button>
         <Button id="help" size="small" onClick={()=> setRun(!run)} ><HelpOutlineIcon/> </Button>
         <hr id="line"></hr>
         <Container 

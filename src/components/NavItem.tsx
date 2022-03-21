@@ -32,19 +32,19 @@ const NavItem: React.FunctionComponent<IAppProps> = (props, state) => {
         run: run,
           steps: [
               {
-                  target: '#navButton1',
+                  target: '#seeAllButton',
                   content: 'This button will show you all of the items'
               },
               {
-                target: '#navButton2',
+                target: '#newButton',
                 content: 'This button takes you to the page to make a new item'
             },
             {
-                target: '#navButton3',
+                target: '#updateButton',
                 content: 'This button takes you to the page for updating an item'
             },
             {
-              target: '#navButton4',
+              target: '#completedButton',
               content: 'This button will show you all of the items that have been added to the completed list'
           },
 
@@ -104,10 +104,10 @@ const NavItem: React.FunctionComponent<IAppProps> = (props, state) => {
               }
           }}/>
         <hr id="line"></hr>
-        <Button id="navButton1" variant="contained" size="small" onClick={seeAll} > See all items </Button>
-        <Button id="navButton2" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
-        <Button id="navButton3" variant="contained" size="small" onClick={update} > Update an item </Button>
-        <Button id="navButton4" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
+        <Button id="seeAllButton" className="navButton" variant="contained" size="small" onClick={seeAll} > See all items </Button>
+        <Button id="newButton" className="navButton" variant="contained" size="small" onClick={newitem} > Make a new item </Button>
+        <Button id="updateButton" className="navButton" variant="contained" size="small" onClick={update} > Update an item </Button>
+        <Button id="CompletedButton" className="navButton" variant="contained" size="small" onClick={seeAllComplete} > See all completed items </Button>
         <Button id="help" size="small" onClick={()=> setRun(!run)} ><HelpOutlineIcon/> </Button>
         <hr id="line"></hr>
         <Container 

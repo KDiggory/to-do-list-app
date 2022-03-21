@@ -65,9 +65,9 @@ const Nav: React.FunctionComponent<IAppProps> = (props, state) => {
                   zIndex:1000,
               }
           }}/>
-          <Button  id="mainNavhomepage" variant="contained" size="small" onClick={homePage} >Home page</Button>
-          <Button  id="mainNavitems" variant="contained" size="small" onClick={toItem} >Items</Button>
-          <Button  id="mainNavlists"  variant="contained" size="small" onClick={toList} >Lists</Button>
+          <Button  id="mainNavhomepage" className="navButton" variant="contained" size="small" onClick={homePage} >Home page</Button>
+          <Button  id="mainNavitems" className="navButton" variant="contained" size="small" onClick={toItem} >Items</Button>
+          <Button  id="mainNavlists"  className="navButton" variant="contained" size="small" onClick={toList} >Lists</Button>
           <Button id="help" size="small" onClick={()=> setRun(!run)} ><HelpOutlineIcon/> </Button>
 
       </div>

@@ -9,31 +9,7 @@
     
 }
 
-#navButton {
-    flex-direction: row;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-weight: bold;
-    background-color:cadetblue;
-}
-
- #mainNavhomepage{
-    flex-direction: row;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-weight: bold;
-    background-color: rgb(22, 68, 70);
-    color: white;
- }
- #mainNavitems{
-  flex-direction: row;
-  margin-left: 2%;
-  margin-right: 2%;
-  font-weight: bold;
-  background-color: rgb(22, 68, 70);
-  color: white;
-}
-#mainNavlists{
+Button.navButton {
   flex-direction: row;
   margin-left: 2%;
   margin-right: 2%;
@@ -42,14 +18,6 @@
   color: white;
 }
 
-.MuiButton-contained {
-  flex-direction: row;
-  margin-left: 2%;
-  margin-right: 2%;
-  font-weight: bold;
-  background-color: rgb(22, 68, 70);
-  color: white;
-}
 
 .card {
     border: 10px;
@@ -76,13 +44,6 @@
     color: white;
     
     
-  }
-
-  #form {
-    width: 100%;
-    align-items: center;
-    text-align: left;
-    margin-bottom: 5%;
   }
 
   #inCard {
